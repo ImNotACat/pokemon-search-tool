@@ -1,69 +1,41 @@
-# React + TypeScript + Vite
+# Pokemon Search tool with React Query
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive React + TypeScript web app for browsing and filtering a list of the original 151 Pokémon. This project showcases practical usage of modern React tooling including:
 
-Currently, two official plugins are available:
+- **TanStack React Query** for data fetching and caching
+- **Chakra UI (v3)** for responsive design and component styling
+- **Vite** for a fast TypeScript-first development environment
+- **Component-based architecture** with state lifting and controlled inputs
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Purpose
 
-## Expanding the ESLint configuration
+This project was built to practice and demonstrate:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **API data fetching & caching** with React Query
+- **Efficient filtering/search** using controlled inputs and lifted state
+- **Responsive, accessible UI** using Chakra UI components
+- **Clean state management** without external state libraries
+- Structuring a React app for **scalability and readability**
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## ✨ Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- **React** (with TypeScript)
+- **TanStack React Query** (v5)
+- **Chakra UI** (v3.x)
+- **Vite** (for fast local dev and build)
+- **PokéAPI** (for live data)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## ✨ Features
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- Full list of Gen 1 Pokémon fetched and cached via React Query
+- Search bar with real-time filtering
+- Responsive grid layout using Chakra's `SimpleGrid`
+- Smooth loading and error states
+- Styled Pokémon "cards" with hover interactions
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🌱 DEMO
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+[Live demo site on Vercel](https://undoable-counter-rho.vercel.app/)
+
+
+

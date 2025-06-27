@@ -4,7 +4,7 @@ import { fetchPokemonList } from './api/pokemon';
 import type { Pokemon } from './api/pokemon';
 import PokemonCard from './components/PokemonCard';
 import { SimpleGrid, Spinner, Text, Flex, Box } from '@chakra-ui/react';
-import Header from './components/header';
+import Header from './components/Header';
 
 const App = () => {
   const { data, isLoading, isError } = useQuery<Pokemon[]>({
