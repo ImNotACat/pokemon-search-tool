@@ -1,42 +1,52 @@
 import { useQuery } from '@tanstack/react-query';
+import { useState } from 'react';
 import { fetchPokemonList } from './api/pokemon';
 import type { Pokemon } from './api/pokemon';
-import { useState } from 'react';
-import PokemonCard from './components/pokemonCard';
-import './App.css'; // add basic styling
+import PokemonCard from './components/PokemonCard';
+import { SimpleGrid, Spinner, Text, Flex, Box } from '@chakra-ui/react';
+import Header from './components/header';
 
 const App = () => {
   const { data, isLoading, isError } = useQuery<Pokemon[]>({
     queryKey: ['pokemonList'],
     queryFn: fetchPokemonList,
   });
-
   const [searchTerm, setSearchTerm] = useState('');
 
   const filteredData = data?.filter((pokemon) =>
     pokemon.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
-
   return (
-    <div className="app">
-      <h1>Pokémon Search</h1>
-      <input
-        type="text"
-        placeholder="Search Pokémon"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-      />
+    <Flex
+      direction="column"
+      height="100vh"
+      bg="#213448"
+      color="white"
+      px={4}
+      py={6}
+    >
+      <Box flexShrink={0}>
+        <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
+      </Box>
 
-      {isLoading && <p>Loading Pokémon...</p>}
-      {isError && <p>Failed to load Pokémon list.</p>}
+      <Box
+        flex="1"
+        overflowY="auto"
+        mt={4}
+        pr={1}
+      >
+        {isLoading && <Spinner />}
+        {isError && <Text color="red.500">Failed to load Pokémon list.</Text>}
 
-      <div className="card-grid">
-        {filteredData?.map((pokemon) => (
-          <PokemonCard key={pokemon.name} url={pokemon.url} />
-        ))}
-      </div>
-    </div>
+        <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} gap="4">
+          {filteredData?.map((pokemon) => (
+            <PokemonCard key={pokemon.name} url={pokemon.url} />
+          ))}
+        </SimpleGrid>
+      </Box>
+    </Flex>
   );
 };
+
 
 export default App;
