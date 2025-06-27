@@ -35,7 +35,7 @@ This project was built to practice and demonstrate:
 
 ## 🌱 DEMO
 
-[Live demo site on Vercel](https://undoable-counter-rho.vercel.app/)
+[Live demo site on Vercel](https://pokemon-search-tool.vercel.app/)
 
 
 
