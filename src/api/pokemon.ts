@@ -15,6 +15,22 @@ export interface PokemonDetail {
   weight: number;
   sprites: {
     front_default: string; 
+    other?: { 
+      dream_world?: {
+        front_default?: string | null;
+        front_female?: string | null;
+      };
+      home?: {
+        front_default?: string | null;
+        front_female?: string | null;
+        front_shiny?: string | null;
+        front_shiny_female?: string | null;
+      };
+      'official-artwork'?: { 
+        front_default?: string | null;
+        front_shiny?: string | null;
+      };
+    }
   };
   types: {
     slot: number;
@@ -26,14 +42,22 @@ export interface PokemonDetail {
   stats: {
     base_stat: number;
     effort: number;
-    stat: {
+    stat: { 
       name: string;
       url: string;
     };
+  }[]
+  abilities: {
+    slot: number;
+    ability: { 
+      name: string;
+      url: string;
+    };
+    is_hidden: boolean;
   }[];
+  base_experience: number
 }
 
-// Define the full response structure from the PokeAPI list endpoint
 interface PokemonListResponse {
   count: number;
   next: string | null;
