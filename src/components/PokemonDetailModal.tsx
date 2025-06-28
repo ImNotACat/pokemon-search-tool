@@ -78,11 +78,14 @@ const PokemonDetailModal: React.FC<PokemonDetailModalProps> = ({ isOpen, onClose
           bg="#213448"
           color="white"
           borderRadius="md"
-          maxW={{ base: "90%", md: "70%" }} 
+          maxW={{ base: "90%", sm: "70%",  md: "60%", lg: "50%" }} 
           width="full" 
           p={6} 
           position="relative" 
-          onClick={(e) => e.stopPropagation()} 
+          onClick={(e) => e.stopPropagation()}
+          borderWidth="1px"         // Sets the width of the border (e.g., "1px", "2px", etc.)
+          borderColor="#547792"    // Sets the color of the border (e.g., "gray.700", "white", a hex code)
+          borderStyle="solid"
         >
           <CloseButton 
             position="absolute" 
