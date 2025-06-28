@@ -33,10 +33,13 @@ This project was built to practice and demonstrate:
 - Styled Pokémon "cards" with hover interactions
 
 ## 🌱 DEMO
+[Live demo site on Vercel](https://pokemon-search-tool.vercel.app/)
+
+
 ![App demo](./public/Pokepeek_GIF.gif)
 
 
-[Live demo site on Vercel](https://pokemon-search-tool.vercel.app/)
+
 
 
 
