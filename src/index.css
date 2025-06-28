@@ -35,3 +35,11 @@ h1 {
   line-height: 1.1;
 }
 
+.modal-close-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #f5f1f1;
+  cursor: pointer;
+  padding: 0;
+}

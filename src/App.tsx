@@ -4,6 +4,7 @@ import { useAllPokemonList } from './api/pokemon';
 import PokemonCard from './components/PokemonCard';
 import { SimpleGrid, Spinner, Text, Flex, Box } from '@chakra-ui/react';
 import Header from './components/Header';
+import PokemonDetailModal from './components/PokemonDetailModal';
 
 const queryClient = new QueryClient();
 
@@ -12,6 +13,8 @@ function AppContent() {
   const [searchTerm, setSearchTerm] = useState('');
   const [displayLimit, setDisplayLimit] = useState(20);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedPokemonUrl, setSelectedPokemonUrl] = useState<string | null>(null);
   
   // Use useMemo to memoize the filtered and sliced list for performance
   const displayedPokemon = useMemo(() => {
@@ -53,6 +56,17 @@ function AppContent() {
       }
     };
   }, [displayLimit, allPokemonListItems, displayedPokemon.length]);
+
+  // handling modal
+  const handleCardClick = (pokemonUrl: string) => {
+    setSelectedPokemonUrl(pokemonUrl);
+    setIsModalOpen(true);
+  };
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+    setSelectedPokemonUrl(null); // Clear selected Pokemon when modal closes
+  };
 
   // loading/error handling
   if (isLoading) {
@@ -100,7 +114,11 @@ function AppContent() {
 
         <SimpleGrid columns={{ base: 1, sm: 2, md: 3, xl: 4 }} gap="4">
           {displayedPokemon?.map((pokemon) => (
-            <PokemonCard key={pokemon.name} url={pokemon.url} />
+            <PokemonCard 
+              key={pokemon.name} 
+              url={pokemon.url} 
+              onClick={handleCardClick}
+              />
           ))}
         </SimpleGrid>
 
@@ -116,6 +134,11 @@ function AppContent() {
           </Flex>
         )}
       </Box>
+      <PokemonDetailModal
+        isOpen={isModalOpen}
+        onClose={handleModalClose}
+        pokemonUrl={selectedPokemonUrl}
+      />
     </Flex>
   );
 };

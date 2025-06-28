@@ -2,33 +2,45 @@ import { Box, Image, Text, Badge, Stack, Spinner, Center } from '@chakra-ui/reac
 import { useQuery } from '@tanstack/react-query';
 import { fetchPokemonDetail } from '../api/pokemonDetails';
 import type { PokemonDetail } from '../api/pokemonDetails';
+import React from 'react';
 
 interface Props {
   url: string;
+  onClick: (pokemonUrl: string) => void;
 }
 
-const PokemonCard: React.FC<Props> = ({ url }) => {
+const PokemonCard: React.FC<Props> = ({ url, onClick }) => {
   const { data, isLoading, isError } = useQuery<PokemonDetail>({
     queryKey: ['pokemonDetail', url],
     queryFn: () => fetchPokemonDetail(url),
+    enabled: !!url
   });
 
   if (isLoading)
     return (
-      <Center>
+      <Center height="100%" minHeight="150px">
         <Spinner />
       </Center>
     );
 
   if (isError || !data)
     return (
-      <Box p={4} borderWidth={1} borderRadius="md">
-        Error loading Pokémon.
+      <Box p={4} borderWidth={1} borderRadius="md" height="100%" minHeight="150px">
+        Oh no! Error loading Pokémon.
       </Box>
     );
 
   return (
-    <Box borderWidth="1px" borderRadius="lg" overflow="hidden" p={4} bg="#547792" _hover={{ bg: "#94B4C1" }} boxShadow="sm">
+    <Box 
+      borderWidth="1px" 
+      borderRadius="lg" 
+      overflow="hidden" 
+      p={4} 
+      bg="#547792" 
+      _hover={{ bg: "#94B4C1" }} 
+      boxShadow="sm"
+      onClick={() => onClick(url)} 
+    >
       <Center>
         <Image src={data.sprites.front_default} alt={data.name} boxSize="96px" />
       </Center>
