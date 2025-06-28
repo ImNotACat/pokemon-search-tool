@@ -9,7 +9,7 @@ type HeaderProps = {
     return (
       <>
         <Heading as="h1" size="xl" mb={4} textAlign="center">
-          Pokémon Search
+          Pokédex Search Tool
         </Heading>
         <Input
           placeholder="Search Pokémon..."

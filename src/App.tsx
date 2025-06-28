@@ -73,7 +73,7 @@ function AppContent() {
     return <div style={{ textAlign: 'center', padding: '50px' }}>No Pokemon data available.</div>;
   }
 
-  const hasMoreToLoad = displayLimit < (allPokemonListItems?.length || 0);
+  const hasMoreToLoad = displayLimit < (displayedPokemon?.length || 0);
 
   return (
     <Flex
