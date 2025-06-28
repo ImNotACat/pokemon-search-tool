@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import React, { useState, useMemo, useEffect, useRef } from 'react';
+import { useState, useMemo, useEffect, useRef } from 'react';
 import { useAllPokemonList } from './api/pokemon';
 import PokemonCard from './components/PokemonCard';
 import { SimpleGrid, Spinner, Text, Flex, Box } from '@chakra-ui/react';
