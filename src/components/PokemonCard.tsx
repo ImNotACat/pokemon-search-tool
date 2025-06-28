@@ -55,8 +55,8 @@ const PokemonCard: React.FC<Props> = ({ url, onClick }) => {
             </Badge>
           ))}
         </Stack>
-        <Text fontSize="sm">Height: {data.height}</Text>
-        <Text fontSize="sm">Weight: {data.weight}</Text>
+        <Text fontSize="sm">Height: {data.height / 10} m</Text>
+        <Text fontSize="sm">Weight: {data.weight / 10} kg</Text>
       </Stack>
     </Box>
   );

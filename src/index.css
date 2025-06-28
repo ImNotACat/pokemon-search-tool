@@ -35,11 +35,25 @@ h1 {
   line-height: 1.1;
 }
 
-.modal-close-button {
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  color: #f5f1f1;
-  cursor: pointer;
-  padding: 0;
+.modal-backdrop{    
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  position: relative;
 }

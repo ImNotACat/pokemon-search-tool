@@ -90,6 +90,7 @@ function AppContent() {
   const hasMoreToLoad = displayLimit < (displayedPokemon?.length || 0);
 
   return (
+    <>
     <Flex
       direction="column"
       height="100vh"
@@ -140,6 +141,8 @@ function AppContent() {
         pokemonUrl={selectedPokemonUrl}
       />
     </Flex>
+    </>
+
   );
 };
 
